@@ -10,4 +10,6 @@
     <string name="default_day">4 декабря</string>
     <string name="history_of_30_day">История доллара за последние 30 дней</string>
     <string name="default_currency">63,312</string>
+    <string name="currency">Валюта</string>
+    <string name="USD_Currency_Grow">Доллар вырос</string>
 </resources>

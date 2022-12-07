@@ -7,5 +7,10 @@ import com.example.bankofrussia.domain.LoadCurrencyUseCase
 
 class MainActivityViewModel(application: Application):AndroidViewModel(application) {
 
+    private val repository = CurrencyRepositoryImpl(application)
+    private val loadCurrencyUseCase = LoadCurrencyUseCase(repository)
 
+    fun loadCurrencies() {
+        loadCurrencyUseCase.invoke()
+    }
 }

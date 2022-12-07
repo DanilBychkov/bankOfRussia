@@ -25,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name="com.example.alfa_bank_android_app_parent_2.ui.service.AlarmReceiver" />
     </application>
 
 </manifest>

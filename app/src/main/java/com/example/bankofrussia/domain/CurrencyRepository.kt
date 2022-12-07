@@ -7,5 +7,5 @@ interface CurrencyRepository {
 
     fun getCurrencyList(): LiveData<List<Currency>>
 
-    suspend fun loadCurrency(firstDate: String, secondDate: String)
+    fun loadCurrency()
 }
