@@ -15,9 +15,7 @@ class LoadDataWorker(var context: Context, workerParameters: WorkerParameters) :
 
     private val currencyListDao = AppDatabase.getInstance(context).currencyListDao()
     private val apiService = ApiFactory.apiService
-
     private val mapper = CurrencyMapper()
-
 
     override suspend fun doWork(): Result {
         while (true) {

@@ -1,15 +1,10 @@
 package com.example.bankofrussia.presentation.currencies
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.example.bankofrussia.data.repository.CurrencyRepositoryImpl
+import androidx.lifecycle.ViewModel
 import com.example.bankofrussia.domain.GetCurrencyListUseCase
+import javax.inject.Inject
 
-class CurrenciesViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository = CurrencyRepositoryImpl(application)
-    private val getCurrencyListUseCase = GetCurrencyListUseCase(repository)
-
+class CurrenciesViewModel @Inject constructor(getCurrencyListUseCase: GetCurrencyListUseCase) : ViewModel() {
     val currenciesList = getCurrencyListUseCase()
 
 }

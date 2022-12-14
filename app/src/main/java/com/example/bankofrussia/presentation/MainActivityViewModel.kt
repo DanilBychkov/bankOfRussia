@@ -1,14 +1,12 @@
 package com.example.bankofrussia.presentation
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.example.bankofrussia.data.repository.CurrencyRepositoryImpl
+import androidx.lifecycle.ViewModel
 import com.example.bankofrussia.domain.LoadCurrencyUseCase
+import javax.inject.Inject
 
-class MainActivityViewModel(application: Application):AndroidViewModel(application) {
-
-    private val repository = CurrencyRepositoryImpl(application)
-    private val loadCurrencyUseCase = LoadCurrencyUseCase(repository)
+class MainActivityViewModel @Inject constructor(
+    private val loadCurrencyUseCase: LoadCurrencyUseCase
+):ViewModel() {
 
     fun loadCurrencies() {
         loadCurrencyUseCase.invoke()

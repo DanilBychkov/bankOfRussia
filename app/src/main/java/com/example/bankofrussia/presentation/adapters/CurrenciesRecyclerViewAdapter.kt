@@ -17,7 +17,7 @@ class CurrenciesRecyclerViewAdapter() :
     lateinit var currencies: List<Currency>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-        val layout = if (viewType == INCREASE_VIEW_TYPE)
+        val layout = if (viewType == INCREASE.value)
             R.layout.item_currency_increase
         else
             R.layout.item_currency_decrease
@@ -32,7 +32,7 @@ class CurrenciesRecyclerViewAdapter() :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return currencies[position].typeCurrency.getViewType()
+        return currencies[position].typeCurrency.value
     }
 
     @SuppressLint("SetTextI18n")
@@ -49,14 +49,5 @@ class CurrenciesRecyclerViewAdapter() :
         var value: TextView = itemView.findViewById(R.id.currencyTextView)
     }
 
-    private fun TypeCurrency.getViewType(): Int = when (this) {
-        INCREASE -> INCREASE_VIEW_TYPE
-        DECREASE -> DECREASE_VIEW_TYPE
-    }
-
-    companion object {
-        const val INCREASE_VIEW_TYPE = 0
-        const val DECREASE_VIEW_TYPE = 1
-    }
 
 }

@@ -5,8 +5,9 @@ import com.example.bankofrussia.data.network.modeldto.Valute
 import com.example.bankofrussia.data.network.modeldto.ValuteContainer
 import com.example.bankofrussia.domain.entities.Currency
 import com.example.bankofrussia.domain.entities.TypeCurrency
+import javax.inject.Inject
 
-class CurrencyMapper {
+class CurrencyMapper @Inject constructor() {
 
     fun mapValuteContainerToListValute(valuteContainer: ValuteContainer): List<CurrencyDBModel> {
         val result = mutableListOf<CurrencyDBModel>()

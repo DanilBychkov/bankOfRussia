@@ -6,16 +6,18 @@ import androidx.lifecycle.Transformations
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.example.bankofrussia.data.database.AppDatabase
+import com.example.bankofrussia.data.database.CurrencyListDao
 import com.example.bankofrussia.data.mapper.CurrencyMapper
 import com.example.bankofrussia.data.workers.LoadDataWorker
 import com.example.bankofrussia.domain.CurrencyRepository
 import com.example.bankofrussia.domain.entities.Currency
+import javax.inject.Inject
 
-class CurrencyRepositoryImpl(private val application: Application) : CurrencyRepository {
-
-    private val currencyListDao =
-        AppDatabase.getInstance(application.applicationContext).currencyListDao()
-    private val mapper = CurrencyMapper()
+class CurrencyRepositoryImpl @Inject constructor(
+    private val application: Application,
+    private val mapper: CurrencyMapper,
+    private val currencyListDao: CurrencyListDao
+) : CurrencyRepository {
 
     override fun getCurrencyList(): LiveData<List<Currency>> =
         Transformations.map(currencyListDao.getCurrencyItems()) {
